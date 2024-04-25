@@ -1,6 +1,6 @@
 # Llama 3 Chat Completion Script
 
-This script is designed to perform chat completion tasks using the llama 3 model on the Yens platform.
+This script is designed to perform chat completion tasks using the Llama 3 model on the Yens platform.
 
 ## Environment Setup
 
