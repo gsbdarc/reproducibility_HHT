@@ -71,7 +71,7 @@ nvidia-nccl-cu12         2.20.5
 nvidia-nvjitlink-cu12    12.4.127
 nvidia-nvtx-cu12         12.1.105
 packaging                24.0
-pip                      24.0
+pip                      22.0.2
 python-dotenv            1.0.1
 PyYAML                   6.0.1
 regex                    2024.4.16
@@ -86,8 +86,8 @@ transformers             4.40.1
 triton                   2.3.0
 typing_extensions        4.11.0
 urllib3                  2.2.1
-wheel                    0.37.1
 ```
+
 # How to Create Llama 3 Chat Completion `venv` on the Yens 
 To install GPU-supported package for the script to run on the GPU, we start by checking out a GPU node:
 
@@ -143,10 +143,11 @@ Once the environment is built, you can exit and close the interactive GPU sessio
 We are ready to run the code. Submit the slurm script with:
 
 ```bash
-sbatch  
+sbatch llama.slurm  
 ```
 
+Once the job is running, monitor the job's progress with: 
 
-
-
-
+```bash
+tail -f *out
+```
