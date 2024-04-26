@@ -1,6 +1,6 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-import dotenv, os, sys
+import dotenv, os 
 from dotenv import load_dotenv
 
 # Load the environment variables from .env file

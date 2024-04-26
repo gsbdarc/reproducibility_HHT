@@ -88,4 +88,65 @@ typing_extensions        4.11.0
 urllib3                  2.2.1
 wheel                    0.37.1
 ```
+# How to Create Llama 3 Chat Completion `venv` on the Yens 
+To install GPU-supported package for the script to run on the GPU, we start by checking out a GPU node:
+
+```bash
+salloc -p gpu -G 1 -t 10:00:00
+```
+
+Once the allocation is granted, connect to the GPU node that is interactive job is running on:
+```bash
+squeue -u $USER
+ssh yen-gpu[X]
+```
+Navigate to a ZFS space where you have write permissions. 
+
+```bash
+cd /zfs/projects/<my-project>
+```
+
+Clone the GitHub repository: 
+```bash
+git clone https://github.com/gsbdarc/reproducibility_HHT.git
+```
+
+Navigate to the `better_example` folder:
+
+```bash
+cd reproducibility_HHT/better_example
+```
+
+Create a new venv environment:
+```bash
+python3 -m venv env
+```
+
+Activate it:
+```bash
+source env/bin/activate
+```
+
+Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Optionally make this venv into a JupyterHub kernel:
+```bash
+pip install ipykernel
+python -m ipykernel install --user --name=llm
+```
+
+Once the environment is built, you can exit and close the interactive GPU session.
+
+We are ready to run the code. Submit the slurm script with:
+
+```bash
+sbatch  
+```
+
+
+
+
 
