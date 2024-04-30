@@ -4,7 +4,7 @@ This script is designed to perform chat completion tasks using the Llama 3 model
 
 ## Environment Setup
 
-Before running the script, make sure the following environment variables are set:
+Before running the script, make sure the following environment variable is set:
 
 - `HF_TOKEN`: API token for Hugging Face. Access to Llama-3 model is granted by [application](https://huggingface.co/meta-llama/Meta-Llama-3-8B). Once access is granted, set this variable in your `.env` file.
 
