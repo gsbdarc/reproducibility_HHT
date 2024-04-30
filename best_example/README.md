@@ -81,7 +81,7 @@ Before building the container, ensure you have Podman installed on your system. 
 
     Once the `llama-model` container image is built and saved to the file system, you can exit and close the interactive GPU session.
 
-# How to run Llama 3 chat completion script on Yen GPU node.
+# Running Llama 3 Chat Completion Script on Yen GPU Node
 
 We are ready to run the code. Submit the slurm script with:
 

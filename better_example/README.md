@@ -140,8 +140,7 @@ python -m ipykernel install --user --name=llm
 
 Once the environment is built, you can exit and close the interactive GPU session.
 
-# How to run Llama 3 chat completion script on Yen GPU node. 
-
+# Running Llama 3 Chat Completion Script on Yen GPU Node
 We are ready to run the code. Submit the slurm script with:
 
 ```bash
