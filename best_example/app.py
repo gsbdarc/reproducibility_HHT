@@ -30,6 +30,12 @@ if __name__ == '__main__':
     # Check for GPU availability
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
+    
+     # Print model memory footprint
+    if device == 'cuda':
+        print(f"Total GPU memory: {torch.cuda.get_device_properties(0).total_memory / (1024 ** 3):.2f} (GB)")
+        print(f"Memory allocated: {torch.cuda.memory_allocated(0) / (1024 ** 3):.2f} (GB)")
+        print(f"Memory cached: {torch.cuda.memory_reserved(0) / (1024 ** 3):.2f} (GB)")
 
     # Load the text generation pipeline
     text_generator = pipeline("text-generation", model="meta-llama/Meta-Llama-3-8B")    
