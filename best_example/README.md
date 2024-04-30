@@ -6,7 +6,7 @@ This script is designed to perform chat completion tasks using the Llama 3 model
 
 Before running the script, make sure the following environment variables are set:
 
-- `HF_HOME`: Specifies the cache directory for Hugging Face models and tokenizers. Set this variable in your `.env` file.
+- `HF_TOKEN`: API token for Hugging Face. Access to Llama-3 model is granted by [application](https://huggingface.co/meta-llama/Meta-Llama-3-8B). Once access is granted, set this variable in your `.env` file.
 
 ## Fixed Inputs
 
