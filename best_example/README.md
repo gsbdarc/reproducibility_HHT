@@ -53,32 +53,33 @@ Before building the container, ensure you have Podman installed on your system. 
    ```
 
 2. **SSH into the Allocated Node**:
-Once your node is allocated, connect to it using SSH. Replace `yen-gpu[X]` with the actual node name assigned to you:
-```
-ssh yen-gpu[X]
-```
+    Once your node is allocated, connect to it using SSH. Replace `yen-gpu[X]` with the actual node name assigned to you:
+    ```
+    ssh yen-gpu[X]
+    ```
 
 3. **Navigate to the Project Directory**:
-Change to the `best_example` directory in the repo where the Dockerfile and related project files are located:
-```
-cd reproducibility_HHT/best_example
-```
+    Change to the `best_example` directory in the repo where the Dockerfile and related project files are located:
+    ```
+    cd reproducibility_HHT/best_example
+    ```
 
 4. **Build the Container**:
-Use Podman to build your container. This process reads your Dockerfile to create the container image named `llama-model`:
-```
-podman build -t llama-model .
-```
-This command will execute the steps defined in your Dockerfile, such as setting up the working environment, installing necessary packages, and preparing the Python script for execution.
+    Use Podman to build your container. This process reads your Dockerfile to create the container image named `llama-model`:
+
+    ```
+    podman build -t llama-model .
+    ```
+    This command will execute the steps defined in your Dockerfile, such as setting up the working environment, installing necessary packages, and preparing the Python script for execution.
 
 5. **Save the Container**:
-Because images are in local storage, we want to save them to a ZFS location so that we can run them from any yen-slurm node (with appropriate GPU resources).
+    Because images are in local storage, we want to save them to a ZFS location so that we can run them from any yen-slurm node (with appropriate GPU resources).
 
-```
-podman save localhost/llama-model:latest -o /zfs/<path/to/repo>/reproducibility_HHT/best_example/llama-model-image.tar
-```
+    ```
+    podman save localhost/llama-model:latest -o /zfs/<path/to/repo>/reproducibility_HHT/best_example/llama-model-image.tar
+    ```
 
-Once the `llama-model` container image is built and saved to the file system, you can exit and close the interactive GPU session.
+    Once the `llama-model` container image is built and saved to the file system, you can exit and close the interactive GPU session.
 
 # How to run Llama 3 chat completion script on Yen GPU node.
 
