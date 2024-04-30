@@ -11,7 +11,7 @@ The purpose of this tool is to leverage the Llama 3 model to generate coherent a
 Features:
 ---------
 - Easy integration with the Llama 3 model provided by Hugging Face.
-- Automated download and caching of model and tokenizer using environment variables.
+- Hugging Face pipeline for easy inference. 
 - GPU support for accelerated text generation.
 
 By employing this script, researchers and developers can quickly implement text generation tasks and expand upon them, customizing the tool to fit specific project requirements or research objectives.
@@ -31,18 +31,16 @@ if __name__ == '__main__':
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
     
+    # Load the text generation pipeline
+    text_generator = pipeline("text-generation", model="meta-llama/Meta-Llama-3-8B")    
+
      # Print model memory footprint
     if device == 'cuda':
         print(f"Total GPU memory: {torch.cuda.get_device_properties(0).total_memory / (1024 ** 3):.2f} (GB)")
-        print(f"Memory allocated: {torch.cuda.memory_allocated(0) / (1024 ** 3):.2f} (GB)")
-        print(f"Memory cached: {torch.cuda.memory_reserved(0) / (1024 ** 3):.2f} (GB)")
-
-    # Load the text generation pipeline
-    text_generator = pipeline("text-generation", model="meta-llama/Meta-Llama-3-8B")    
 
     # Define the input text
     test_input = "Stanford GSB is known for"
 
     # Run the model and print the output
-    results = text_generator(test_input, max_length=100)
+    results = text_generator(test_input, truncation=True, max_length=100)
     print(results[0]['generated_text'])

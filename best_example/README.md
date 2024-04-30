@@ -16,7 +16,7 @@ Before running the script, make sure the following environment variables are set
 ## Expected Outputs
 
 - **Generated Text**: The script outputs a string of text that is the model's completion of the input prompt, with a maximum length of 100 tokens. Special tokens are not included in the output for readability.
-- **Device Information**: If running on a GPU-enabled system, the script will also output the total memory, allocated memory, and cached memory on the device.
+- **Device Information**: If running on a GPU-enabled system, the script will also output the total memory on the device.
 
 ## Initial Test Case
 - The script contains a test case with the prompt "Stanford GSB is known for", which is intended to verify that the model and script are functioning as expected upon setup. The specific output text may vary due to the probabilistic nature of the model.
