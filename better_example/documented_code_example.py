@@ -36,7 +36,7 @@ def load_model():
 
     # Load the model
     model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", cache_dir=os.environ["HF_HOME"])
-    
+    print(f'caching the model to {os.environ["HF_HOME"]}, path set in .env file')    
     return tokenizer, model
 
 def run_model(input_text, tokenizer, model):

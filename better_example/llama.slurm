@@ -15,8 +15,12 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=your_email@stanford.edu
 
-# activate venv 
+# Activate venv 
 source env/bin/activate
 
-# run python script
+# Set the HF_HOME environment variable based on the current user
+# Avoid using your home directory on the Yens due to large model size 
+export HF_HOME="/scratch/shared/$USER/.cache/huggingface/hub"
+
+# Run python script on GPU
 python documented_code_example.py 
